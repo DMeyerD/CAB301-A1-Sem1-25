@@ -134,11 +134,46 @@ namespace Assignment1
 
         public bool DeleteBorrower(string aBorrower)
         {
-            throw new System.NotImplementedException("Tool.DeleteBorrower() not implemented");
+            if (!string.IsNullOrEmpty(aBorrower))
+            {
+                for (int i = 0; i < mBorrowers.Length; i++)
+                {
+                    if (mBorrowers[i] == aBorrower)
+                    {
+                        string [] newBorrowers = new string[mBorrowers.Length - 1];
+                        int k = 0;
+                        for (int j = 0; j < mBorrowers.Length; j++)
+                        {
+                            if (j != i)
+                            {
+                                newBorrowers[k++] = mBorrowers[j];
+                            }
+                        }
+                        mBorrowers = newBorrowers;
+
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;        
         }
 
         public bool SearchBorrower(string aBorrower)
         {
+            // Check if the borrower is in the list
+            for (int i = 0; i < mBorrowers.Length; i++)
+            {
+                if (mBorrowers[i] == aBorrower)
+                {
+                    // Borrower found, return true
+                    return true;
+                }
+            }
+            // Borrower not found, return false
+            return false;
+
             throw new System.NotImplementedException("Tool.SearchBorrower() not implemented");
         }
     }

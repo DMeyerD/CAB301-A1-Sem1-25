@@ -1,4 +1,5 @@
-﻿namespace Assignment1
+﻿
+namespace Assignment1
 {
     public partial class Tool : ITool
     {
@@ -64,16 +65,16 @@
 
         public bool IncreaseQuantity(int num)
         {
-            if (num > 0 && num <= AvailableQuantity)
+                // Check if the input number is valid (greater than 0)
+            if (num > 0)
             {
-                Quantity = Quantity - num;
-                AvailableQuantity = AvailableQuantity - num;
+                // Update the quantity and available quantity
+                mQuantity += num;
                 return true;
             }
             else
             {
-                Quantity = Quantity;
-                AvailableQuantity = AvailableQuantity;
+                // If the input is invalid, return false without changing the state
                 return false;
             }
             throw new System.NotImplementedException("Tool.IncreaseQuantity() not implemented");
@@ -81,11 +82,53 @@
 
         public bool DecreaseQuantity(int num)
         {
+            // add a BORROWER to the borrower list
+            if (num > 0 && num <= AvailableQuantity && (mQuantity - num) >= 1)
+            {
+                mQuantity -= num;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
             throw new System.NotImplementedException("Tool.DecreaseQuantity() not implemented");
         }
 
         public bool AddBorrower(string aBorrower)
-        {
+        {    
+            // Check pre-conditions: AvailableQuantity > 0, aBorrower is not null or empty
+            if (AvailableQuantity > 0 && !string.IsNullOrEmpty(aBorrower))
+            {
+                // Check if the borrower is already in the list
+                for (int i = 0; i < mBorrowers.Length; i++)
+                {
+                    if (mBorrowers[i] == aBorrower)
+                    {
+                        // Borrower already exists, return false
+                        return false;
+                    }
+                }
+
+                // Add the borrower to the list
+                string[] newBorrowers = new string[mBorrowers.Length + 1];
+                for (int i = 0; i < mBorrowers.Length; i++)
+                {
+                    newBorrowers[i] = mBorrowers[i];
+                }
+                newBorrowers[mBorrowers.Length] = aBorrower;
+
+                // Update the borrowers array
+                mBorrowers = newBorrowers;
+
+                // added successfully
+                return true;
+            }
+            else
+            {
+                // Pre-conditions not met, return false
+                return false;
+            } 
             throw new System.NotImplementedException("Tool.AddBorrower() not implemented");
         }
 

@@ -48,22 +48,20 @@ namespace Assignment1
         // return true, New Quantity = Old Quantity - num, 
         // and New AvailableQuantity = Old AvailableQuantity - num;
 
-        
+
         // otherwise, return false, New Quantity = Old Quantity, 
         // and New AvailableQuantity = Old AvailableQuantity.
         
-        
-        
-        
-        
-        
         bool DecreaseQuantity(int num);
+
+        
         // to be implemented by students
 
         //get all the borrowers who are currently holding this tool
         string[] Borrowers  
         {
             get;
+            
         }
 
         //add a borrower to the borrower list

@@ -64,6 +64,18 @@
 
         public bool IncreaseQuantity(int num)
         {
+            if (num > 0 && num <= AvailableQuantity)
+            {
+                NewQuantity = OldQuantity - num;
+                NewAvailableQuantity = OldAvailableQuantity - num;
+                return true;
+            }
+            else
+            {
+                NewQuantity = OldQuantity;
+                NewAvailableQuantity = OldAvailableQuantity;
+                return false;
+            }
             throw new System.NotImplementedException("Tool.IncreaseQuantity() not implemented");
         }
 

@@ -34,13 +34,29 @@ namespace Assignment1
         //Pre-condition: nil
         //Post-conditions:  if num > 0, return true, New Quantity = Old Quantity + num, and New AvailableQuantity = Old AvailableQuantity + num;
         //                  otherwise, return false, New Quantity = Old Quantity, and New AvailableQuantity = Old AvailableQuantity.
+        
+        
+        
+        
+        
         bool IncreaseQuantity(int num);
         // to be implemented by students
 
         //Decrease the quantity of this tool
         //Pre-condition: nil
-        //Post-conditions:  if num > 0 and num <= AvailableQuantity, return true, New Quantity = Old Quantity - num, and New AvailableQuantity = Old AvailableQuantity - num;
-        //                  otherwise, return false, New Quantity = Old Quantity, and New AvailableQuantity = Old AvailableQuantity.
+        //Post-conditions:  if num > 0 and num <= AvailableQuantity, 
+        // return true, New Quantity = Old Quantity - num, 
+        // and New AvailableQuantity = Old AvailableQuantity - num;
+
+        
+        // otherwise, return false, New Quantity = Old Quantity, 
+        // and New AvailableQuantity = Old AvailableQuantity.
+        
+        
+        
+        
+        
+        
         bool DecreaseQuantity(int num);
         // to be implemented by students
 
@@ -75,4 +91,4 @@ namespace Assignment1
 
 }
 // Test
-
+ 
